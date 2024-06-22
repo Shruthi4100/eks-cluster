@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodejs
+  name: nodejs
+spec:
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - image: shruthi4100/nodejs
+        name: nodejs
+        resources: {}
+

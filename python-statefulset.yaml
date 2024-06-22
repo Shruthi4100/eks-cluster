@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: python
+  name: python
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python
+    spec:
+      containers:
+      - image: shruthi4100/pythonapp
+        name: pythonapp
+        resources: {}
+status: {}
