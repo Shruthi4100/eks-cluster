@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-06-25T02:36:56Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: pythonapp
+  name: pythonlb
+  namespace: default
+  resourceVersion: "3690"
+  uid: 631fd186-7b0a-4e83-995c-564ce3094044
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.100.12.214
+  clusterIPs:
+  - 10.100.12.214
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31130
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: pythonapp
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: a631fd1867b0a4e83995c564ce309404-122040206.us-east-1.elb.amazonaws.com

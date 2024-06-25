@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-06-25T02:33:32Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: javaapp
+  name: javalb
+  namespace: default
+  resourceVersion: "3112"
+  uid: a868095f-6672-4149-b94a-b3d404ef3166
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.100.9.78
+  clusterIPs:
+  - 10.100.9.78
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31708
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: javaapp
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: aa868095f66724149b94ab3d404ef316-415137188.us-east-1.elb.amazonaws.com
